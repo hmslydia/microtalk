@@ -1,0 +1,236 @@
+<html>
+<head>
+
+<style>
+h3 {
+  font-size: 24;
+}
+h4 {
+  text-decoration: underline;
+}
+table td {
+  background: yellow;
+  padding: 6px 6px 6px 12px;
+  
+}
+
+table.question td {
+  background: lightblue;
+  padding: 6px 6px 6px 12px;
+  
+}
+.question {
+  margin-left: 20px;
+}
+.answer {
+  margin-left: 20px;
+}
+</style>
+</head>
+<body>
+
+<h3>Task:</h3>
+<p>
+Verify Wikipedia links for terms in a document.
+</p>
+<h3>Instructions:</h3>
+<ol>
+<li>Read a term and it's usage in context. </li>
+<li>Read wikipedia links that we provide you.  Click on them to browse the page if you need more information.</li>
+<li>For each link, tell us whether the term is likely to be referring to that link.</li>
+</ol>
+
+<h4>Example</h4>
+<div class='example'>
+<table>
+  <tr>
+    <td>term:</td>  <td><b>Obama</b></td>
+  </tr> 
+  <tr>
+    <td>context:</td>  <td><b>Obama</b> negotiated with Putin.</td>
+  </tr> 
+</table>   
+<br> 
+ 
+<table class='question'>
+  <tr>
+    <td><b>Question 1:</b></td>  <td>Is "<b>Obama</b>" likely referring to <a href="http://en.wikipedia.org/wiki/Barack_Obama" target="_blank">Barack_Obama</a>?</td>
+  </tr> 
+  <tr>
+    <td>Answer:</td>  <td>"Yes, definitely."</td>
+  </tr> 
+</table>  
+ 
+ <br>
+<table class='question'>
+  <tr>
+    <td><b>Question 2:</b></td>  <td>Is "<b>Obama</b>" likely referring to <a href="http://en.wikipedia.org/wiki/Michelle_Obama" target="_blank">Michelle_Obama</a>?</td>
+  </tr> 
+  <tr>
+    <td>Answer:</td>  <td>"No."</td>
+  </tr> 
+</table>   
+
+<div class='question'>
+Commonsense and experience tells us that it's Barack Obama who met with Putin, even though it's technically unclear.
+</div>
+
+<h3>Details and Examples</h3>
+Here are some examples of tricky cases to help you make decisions:<br>
+
+<h4>Example 1. Terms can refer to multiple things.</h4>
+<table>
+  <tr>
+    <td>term:</td>  <td><b>Stanford</b></td>
+  </tr> 
+  <tr>
+    <td>context:</td>  <td><b>Stanford</b> quarterback drafted to the NFL.
+</td>
+  </tr> 
+</table>  
+
+<br>
+<table class='question'>
+  <tr>
+    <td><b>Question 1.1:</b></td>  <td>Is "<b>Stanford</b>" likely referring to <a href="http://en.wikipedia.org/wiki/Stanford_University" target="_blank">Stanford_University</a>?</td>
+  </tr> 
+  <tr>
+    <td>Answer:</td>  <td>"Yes, definitely."</td>
+  </tr> 
+</table>   
+<br>
+<table class='question'>
+  <tr>
+    <td><b>Question 1.2:</b></td>  <td>Is "<b>Stanford</b>" likely referring to <a href="http://en.wikipedia.org/wiki/Stanford_Cardinal_football" target="_blank">Stanford_Cardinal_football</a>?</td>
+  </tr> 
+  <tr>
+    <td>Answer:</td>  <td>"Yes, definitely."</td>
+  </tr> 
+</table>   
+
+
+<h4>Example 2. Terms can have non-literal interpretations.</h4>
+
+<table>
+  <tr>
+    <td>term:</td>  <td><b>Capitol Hill</b></td>
+  </tr> 
+  <tr>
+    <td>context:</td>  <td> The bill will go to <b>Capitol Hill</b> today.
+</td>
+  </tr> 
+</table>  
+
+
+<br>
+<table class='question'>
+  <tr>
+    <td><b>Question 2.1:</b></td>  <td>Is "<b>Capitol Hill</b>" likely referring to <a href="http://en.wikipedia.org/wiki/Capitol_Hill" target="_blank">Capitol_Hill</a>?</td>
+  </tr> 
+  <tr>
+    <td>Answer:</td>  <td>"Yes, possibly."</td>
+  </tr> 
+</table> 
+<div class='question'>
+Comment: Capitol Hill is really just a neighborhood of Washington D.C. (according to Wikipedia), so it's not a perfect reference for this context.  If you wanted to say the answer was "No." that would also be a good answer.  
+</div>
+  
+<br>
+<table class='question'>
+  <tr>
+    <td><b>Question 2.2:</b></td>  <td>Is "<b>Capitol Hill</b>" likely referring to <a href="http://en.wikipedia.org/wiki/United_States_Congress" target="_blank">United_States_Congress</a>?</td>
+  </tr> 
+  <tr>
+    <td>Answer:</td>  <td>"Yes, definitely."</td>
+  </tr> 
+</table>   
+<div class='question'>
+Comment: In this context, "Capitol Hill" is a non-literal way of referring to Congress.
+</div>
+
+
+
+
+
+<h4>Example 3. The form of the word isn't that important.</h4>
+
+<table>
+  <tr>
+    <td>term:</td>  <td><b>Israeli</b></td>
+  </tr> 
+  <tr>
+    <td>context:</td>  <td><b>Israeli</b> troops are on the move.
+</td>
+  </tr> 
+</table> 
+
+
+<br>
+
+
+<table class='question'>
+  <tr>
+    <td><b>Question 3.1:</b></td>  <td>Is "<b>Israeli</b>" likely referring to <a href="http://en.wikipedia.org/wiki/Israel" target="_blank">Israel</a>?</td>
+  </tr> 
+  <tr>
+    <td>Answer:</td>  <td>"Yes, definitely."</td>
+  </tr> 
+</table> 
+<div class='question'>
+Comment: Just because Israeli is an adjective, we still know it's referring to Israel.
+</div>
+<br>
+<table class='question'>
+  <tr>
+    <td><b>Question 2.1:</b></td>  <td>Is "<b>Israeli</b>" likely referring to <a href="http://en.wikipedia.org/wiki/Israel_Defense_Forces" target="_blank">Israel_Defense_Forces</a>?</td>
+  </tr> 
+  <tr>
+    <td>Answer:</td>  <td>"Yes, definitely."</td>
+  </tr> 
+</table> 
+<div class='question'>
+Comment: Again, terms can have multiple wikipedia references.  Some are more literal than others.
+</div>
+<br>
+<table class='question'>
+  <tr>
+    <td><b>Question 2.1:</b></td>  <td>Is "<b>Israeli</b>" likely referring to <a href="http://en.wikipedia.org/wiki/Tel_Aviv" target="_blank">Tel_Aviv</a>?</td>
+  </tr> 
+  <tr>
+    <td>Answer:</td>  <td>"No."</td>
+  </tr> 
+</table> 
+<div class='question'>
+Comment: Tel Aviv is in Israel, and Tel Aviv is has some association to Israel and this context, but if we focus on the term "<b>Israeli</b>" and see that Israel is not referring to Tel Aviv.  
+</div>
+
+<h4>Example 4. It's okay to say that you're not sure.</h4>
+
+<table>
+  <tr>
+    <td>term:</td>  <td><b>President Bush</b></td>
+  </tr> 
+  <tr>
+    <td>context:</td>  <td><b>President Bush</b> is from Texas</td>
+</td>
+  </tr> 
+</table> 
+
+<br>
+<table class='question'>
+  <tr>
+    <td><b>Question 4.1:</b></td>  <td>Is "<b>President Bush</b>" likely referring to <a href="http://en.wikipedia.org/wiki/George_H._W._Bush" target="_blank">George_H._W._Bush</a>?</td>
+  </tr> 
+  <tr>
+    <td>Answer:</td>  <td>"Unsure."</td>
+  </tr> 
+</table> 
+<div class='question'>
+Comment: There's not enough information here to say which President Bush this is talking about, so just say that you're unsure.  
+</div>
+
+
+</body>
+</html>
+
+
